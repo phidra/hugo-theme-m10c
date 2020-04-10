@@ -23,7 +23,7 @@
       <div class="menu-pages">
         {{ range .Site.Params.menuPages }}
           <h3>
-          <a href="{{ .url }}">{{ .content }}</a>
+          <a href="{{ $.Site.BaseURL }}{{ .url }}">{{ .content }}</a>
           </h3>
         {{ end }}
       </div>
