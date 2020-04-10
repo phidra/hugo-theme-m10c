@@ -21,11 +21,10 @@
       <h1>{{ .Site.Title }}</h1>
       <p>{{ .Site.Params.description | default "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium." }}</p>
       <div class="menu-pages">
-        {{ range .Site.Params.menuPages }}
-          <h3>
-          <a href="{{ $.Site.BaseURL }}{{ .url }}">{{ .content }}</a>
-          </h3>
-        {{ end }}
+          <h3> <a href="{{ .Site.BaseURL }}">                Posts       </a> </h3>
+          <h3> <a href="{{ ref . "menu/notes.adoc" }}">      Notes       </a> </h3>
+          <h3> <a href="{{ ref . "menu/references.adoc" }}"> Références  </a> </h3>
+          <h3> <a href="{{ ref . "menu/about.adoc" }}">      À propos    </a> </h3>
       </div>
       <div class="app-header-social">
         {{ range .Site.Params.social }}
