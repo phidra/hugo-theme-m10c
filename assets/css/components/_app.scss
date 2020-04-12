@@ -1,21 +1,52 @@
-.app-header {
-  padding: 2.5em;
-  background: $darkest-color;
-  text-align: center;
+.material-icons
+{
+  font-size:24px;
+  margin-right:12px;
+  vertical-align:text-bottom;
+}
+  
+.app-header nav
+{
+  background:inherit;
+  font-weight:bold;
+  overflow:hidden;
 }
 
-.app-header-avatar {
-  max-width: 10rem;
-  max-height: 10rem;
-  border-radius: 100%;
-  border: 0.5rem solid $primary-color;
+.app-header nav > *
+{
+  display:block;
+  letter-spacing:1px;
+  padding:0 20px;
+  width:100%;
+  line-height: 2.5;
 }
 
-.app-container {
-  padding: 2.5rem;
-}
-
+// DESKTOP
 @media (min-width: 940px) {
+
+  .app-header {
+    padding: 2.5em;
+    background: $darkest-color;
+    text-align: center;
+  }
+
+  .app-header nav
+  {
+    font-size:15px;
+    text-align: left;
+  }
+  
+  #avatar img {
+    max-width: 10rem;
+    max-height: 10rem;
+    border-radius: 100%;
+    border: 0.5rem solid $primary-color;
+  }
+  
+  .app-container {
+    padding: 2.5rem;
+  }
+
   .app-header {
     position: fixed;
     top: 0;
@@ -27,5 +58,81 @@
   .app-container {
     max-width: 65rem;
     margin-left: 20rem;
+  }
+
+  .app-header input {
+    display: none;
+  }
+}
+
+// MOBILE
+@media (max-width: 939px) {
+  #avatar, #description {
+    display: none;
+  }
+
+  .app-container {
+    padding: 1.0rem;
+  }
+
+  
+  .app-header
+  {
+    background: $darkest-color;
+    color: $light-color;
+    height:50px;
+    position:relative;
+  }
+  
+  .app-header .title
+  {
+    font-size:30px;
+    font-weight:bold;
+    line-height:50px;
+    padding:0 20px;
+    text-transform:uppercase;
+  }
+  
+  .app-header nav
+  {
+    font-size:20px;
+    height:0;
+    text-transform:uppercase;
+    transition:height .2s;
+  }
+  
+  .app-header .burger
+  {
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    color:inherit;
+    cursor:pointer;
+    font-family:'Material Icons';
+    font-size:30px;
+    line-height:50px;
+    margin:0;
+    outline:0;
+    padding:0;
+    position:absolute;
+    text-align:center;
+    top:0;
+    right:10px;
+    width:50px;
+  }
+  
+  .app-header .burger:before
+  {
+    content:'menu';
+  }
+  
+  .app-header .burger:checked:before
+  {
+    content:'close';
+  }
+  
+  .app-header .burger:checked + nav
+  {
+    height:calc(100vh - 50px);
   }
 }
