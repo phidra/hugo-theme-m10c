@@ -15,15 +15,6 @@
   padding: 2.5rem;
 }
 
-.app-header-social {
-  font-size: 2em;
-  color: $lightest-color;
-
-  a {
-    margin: 0 0.1em;
-  }
-}
-
 @media (min-width: 940px) {
   .app-header {
     position: fixed;
