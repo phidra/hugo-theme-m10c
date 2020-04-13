@@ -32,11 +32,6 @@
         <h1 class="title">{{ .Site.Title }}</h1>
       </a>
 
-      <!-- description -->
-      {{ if isset .Site.Params "description" }}
-      <p id="description">{{ .Site.Params.description }}</p>
-      {{ end }}
-
       <!-- menu -->
       <input class="burger" type="checkbox">
       <nav>
