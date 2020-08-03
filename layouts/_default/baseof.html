@@ -16,6 +16,12 @@
 
     {{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint -}}
     <link rel="stylesheet" href="{{ $style.Permalink }}" />
+
+    {{ if .Page.Params.has_asciinema }}
+    <!-- see:  https://github.com/asciinema/asciinema-player#self-hosting-quick-start -->
+    <link rel="stylesheet" href="{{ string "/asciinema-v2.6.1/asciinema-player.css" | relURL }}"/>
+    {{ end }}
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
@@ -48,6 +54,10 @@
         {{ .Content }}
       {{ end }}
     </main>
+
+    {{ if .Page.Params.has_asciinema }}
+      <script src="{{ string "/asciinema-v2.6.1/asciinema-player.js" | relURL }}"></script>
+    {{ end }}
 
   </body>
 </html>
