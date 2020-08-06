@@ -1,18 +1,19 @@
 {{ define "main" }}
   <article>
-    <h1>Liste des articles</h1>
+    <h1>Liste des posts</h1>
     <ul class="posts-list">
-      {{ range $index, $element := .Paginator.Pages }}
+
+        {{ range where .Pages "Section" "!="  "menu" }}
         <li class="posts-list-item">
-          <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
+            <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
           <span class="posts-list-item-description">
-            {{ .PublishDate.Format "Jan 2, 2006" }}
+            {{ .PublishDate.Format "Monday 02 January 2006" }}
             —
             {{ partial "icon.html" (dict "ctx" $ "name" "clock") }} {{ .ReadingTime }} min read
           </span>
         </li>
-      {{ end }}
+        {{ end }}
+
     </ul>
-    {{ partial "pagination.html" $ }}
   </article>
 {{ end }}
